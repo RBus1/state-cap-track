@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
   on:
     push:
-      branches: [main]
+      branches:
+        - main
     workflow_dispatch:
 
   permissions:
@@ -11,7 +12,7 @@ name: Deploy to GitHub Pages
     id-token: write
 
   concurrency:
-    group: "pages"
+    group: pages
     cancel-in-progress: false
 
   jobs:
@@ -26,11 +27,7 @@ name: Deploy to GitHub Pages
 
         - name: Create config.js with API key
           run: |
-            cat > js/config.js << 'EOF'
-            const CONFIG = {
-              FINNHUB_API_KEY: '${{ secrets.FINNHUB_API_KEY }}'
-            };
-            EOF
+            echo "const CONFIG = { FINNHUB_API_KEY: '${{ secrets.FINNHUB_API_KEY }}' };" > js/config.js
 
         - name: Setup Pages
           uses: actions/configure-pages@v4
@@ -38,7 +35,7 @@ name: Deploy to GitHub Pages
         - name: Upload artifact
           uses: actions/upload-pages-artifact@v3
           with:
-            path: '.'
+            path: .
 
         - name: Deploy to GitHub Pages
           id: deployment

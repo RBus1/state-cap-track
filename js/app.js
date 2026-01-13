@@ -1,129 +1,23 @@
 // State Capitalism Tracker - Main Application
 
-// Deal data - newsLinks can be an array of {title, url} objects for hyperlinks
-const deals = [
-  {
-    id: 1,
-    name: "MP Materials",
-    ticker: "MP",
-    dateAnnounced: "2025-07-10",
-    description: "15% stake for $400 million from the Department of Defense, making it the company's largest shareholder. Guaranteed offtake agreements and price floor agreement also included.",
-    amountA: "$400 Million",
-    amountB: "",
-    structure: "Price floor: $110 / kilo for 10 years (current market price = ~$60). Profit sharing of 30% if > $110. Offtake: DoD guaranteed purchase of all NdFEB magnets for 10 years at cost of production + $140M / year. Equity: convertible stock and warrants of 15%. Loans: $150M loan to expand mountain pass processing facility",
-    stakeholders: ["Department of Defense", "Office of Strategic Capital", "MP Materials", "Department of Energy"],
-    area: "Critical Minerals, Rare Earths, Neodymium, Praseodymium",
-    newsLinks: [
-      { title: "Bloomberg", url: "https://www.bloomberg.com" }
-    ],
-    officialStatement: "",
-    outcome: "",
-    notes: ""
-  },
-  {
-    id: 2,
-    name: "Intel",
-    ticker: "INTC",
-    dateAnnounced: "2025-08-22",
-    description: "10% stake for $8.9 billion",
-    amountA: "$8.9 Billion",
-    amountB: "",
-    structure: "",
-    stakeholders: ["Intel", "Department of Commerce", "Department of Defense"],
-    area: "Semiconductors",
-    newsLinks: [
-      { title: "CNBC", url: "https://www.cnbc.com" }
-    ],
-    officialStatement: "",
-    outcome: "",
-    notes: "$5.7 billion from remaining CHIPS Act grants plus $3.2 billion from Secure Enclave program"
-  },
-  {
-    id: 3,
-    name: "US Steel / Nippon Steel",
-    ticker: "X",
-    dateAnnounced: "2025-06-18",
-    description: "Golden share (non-equity stake) giving the federal government veto power over key corporate decisions as part of the Nippon Steel acquisition approval",
-    amountA: "N/A",
-    amountB: "",
-    structure: "",
-    stakeholders: ["US Steel", "Nippon Steel", "Federal Government"],
-    area: "Steel",
-    newsLinks: [],
-    officialStatement: "",
-    outcome: "",
-    notes: ""
-  },
-  {
-    id: 4,
-    name: "Lithium Americas Corporation",
-    ticker: "LAC",
-    dateAnnounced: "2025-10-01",
-    description: "5% stake in the company plus a separate 5% stake in the Thacker Pass joint venture with General Motors, as part of restructuring a $2.26 billion loan",
-    amountA: "$2.26 Billion",
-    amountB: "",
-    structure: "",
-    stakeholders: ["General Motors", "Department of Energy", "Lithium Americas Corporation"],
-    area: "Critical Minerals, Lithium",
-    newsLinks: [],
-    officialStatement: "",
-    outcome: "",
-    notes: ""
-  },
-  {
-    id: 5,
-    name: "Trilogy Metals Inc.",
-    ticker: "TMQ",
-    dateAnnounced: "2025-10-07",
-    description: "10% stake for $35.6 million investment, plus warrants for an additional 7.5%",
-    amountA: "$35.6 Million",
-    amountB: "",
-    structure: "",
-    stakeholders: ["Department of Defense", "Office of Strategic Capital", "Interior Department", "South32", "Ambler Metals", "Trilogy Metals Inc."],
-    area: "Critical Minerals",
-    newsLinks: [],
-    officialStatement: "",
-    outcome: "",
-    notes: ""
-  },
-  {
-    id: 6,
-    name: "Vulcan Elements / ReElement Technologies",
-    ticker: null,
-    dateAnnounced: "2025-11-03",
-    description: "$50 million equity stake from the Department of Commerce as part of a $1.4 billion partnership; the Department of Defense also received warrants",
-    amountA: "$50 Million",
-    amountB: "",
-    structure: "",
-    stakeholders: ["Department of Defense", "Department of Commerce", "Vulcan Elements", "ReElement Technologies"],
-    area: "Critical Minerals, Rare Earths",
-    newsLinks: [],
-    officialStatement: "",
-    outcome: "",
-    notes: ""
-  },
-  {
-    id: 7,
-    name: "Korea Zinc",
-    ticker: "KZAAY",
-    dateAnnounced: "2025-12-15",
-    description: "$1.9B of shares sold to a joint venture with 40% Department of Defense ownership and 60% unnamed investors yielding a 10% total stake in Korea Zinc",
-    amountA: "$1.94 Billion",
-    amountB: "",
-    structure: "",
-    stakeholders: ["Department of Defense", "Korea Zinc", "Unnamed Investors"],
-    area: "Critical Minerals, Zinc",
-    newsLinks: [
-      { title: "CNBC", url: "https://www.cnbc.com" }
-    ],
-    officialStatement: "",
-    outcome: "",
-    notes: ""
-  }
-];
+// Deal data - loaded from data/deals.json
+let deals = [];
 
 // Store for stock prices
 const stockPrices = {};
+
+// Load deals from JSON file
+async function loadDeals() {
+  try {
+    const response = await fetch('data/deals.json');
+    if (!response.ok) throw new Error('Failed to load deals');
+    deals = await response.json();
+    return deals;
+  } catch (error) {
+    console.error('Error loading deals:', error);
+    return [];
+  }
+}
 
 // Format date for display
 function formatDate(dateStr) {
@@ -145,31 +39,49 @@ function formatDateShort(dateStr) {
   });
 }
 
-// Fetch stock price from Yahoo Finance API
+// Fetch stock price from Finnhub API
 async function fetchStockPrice(ticker) {
   if (!ticker) return null;
 
+  // Check if API key is configured
+  if (!CONFIG.FINNHUB_API_KEY || CONFIG.FINNHUB_API_KEY === 'YOUR_API_KEY_HERE') {
+    console.warn('Finnhub API key not configured. Get a free key at https://finnhub.io');
+    return null;
+  }
+
   try {
     const response = await fetch(
-      `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1d`
+      `https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${CONFIG.FINNHUB_API_KEY}`
     );
 
     if (!response.ok) throw new Error('Failed to fetch');
 
     const data = await response.json();
-    const result = data.chart.result[0];
-    const meta = result.meta;
+
+    // Finnhub returns: c=current, pc=previous close, h=high, l=low, o=open
+    if (!data.c || data.c === 0) return null;
 
     return {
-      price: meta.regularMarketPrice,
-      previousClose: meta.previousClose,
-      change: meta.regularMarketPrice - meta.previousClose,
-      changePercent: ((meta.regularMarketPrice - meta.previousClose) / meta.previousClose) * 100
+      price: data.c,
+      previousClose: data.pc,
+      change: data.c - data.pc,
+      changePercent: ((data.c - data.pc) / data.pc) * 100,
+      high: data.h,
+      low: data.l,
+      open: data.o
     };
   } catch (error) {
     console.error(`Error fetching stock price for ${ticker}:`, error);
     return null;
   }
+}
+
+// Calculate price change since announcement
+function calculateDealChange(currentPrice, announcementPrice) {
+  if (!announcementPrice || !currentPrice) return null;
+  const change = currentPrice - announcementPrice;
+  const changePercent = (change / announcementPrice) * 100;
+  return { change, changePercent };
 }
 
 // Render stock ticker section
@@ -189,13 +101,28 @@ function renderStockTicker(deal, container) {
     if (priceData) {
       stockPrices[deal.ticker] = priceData;
       const isPositive = priceData.change >= 0;
+
+      // Calculate change since deal announcement
+      const dealChange = calculateDealChange(priceData.price, deal.announcementPrice);
+      const dealChangeHtml = dealChange ? `
+        <div class="deal-price-change ${dealChange.change >= 0 ? 'positive' : 'negative'}">
+          <span class="deal-change-label">Since Deal:</span>
+          <span class="deal-change-value">
+            ${dealChange.change >= 0 ? '+' : ''}$${dealChange.change.toFixed(2)} (${dealChange.change >= 0 ? '+' : ''}${dealChange.changePercent.toFixed(1)}%)
+          </span>
+        </div>
+      ` : '';
+
       tickerDiv.innerHTML = `
-        <span class="ticker-symbol">${deal.ticker}</span>
-        <span class="ticker-price">$${priceData.price.toFixed(2)}</span>
-        <span class="ticker-change ${isPositive ? 'positive' : 'negative'}">
-          ${isPositive ? '+' : ''}${priceData.change.toFixed(2)} (${isPositive ? '+' : ''}${priceData.changePercent.toFixed(2)}%)
-        </span>
-        <span class="status-dot ${isPositive ? 'green' : 'red'}"></span>
+        <div class="ticker-row">
+          <span class="ticker-symbol">${deal.ticker}</span>
+          <span class="ticker-price">$${priceData.price.toFixed(2)}</span>
+          <span class="ticker-change ${isPositive ? 'positive' : 'negative'}">
+            ${isPositive ? '+' : ''}${priceData.change.toFixed(2)} (${isPositive ? '+' : ''}${priceData.changePercent.toFixed(2)}%)
+          </span>
+          <span class="status-dot ${isPositive ? 'green' : 'red'}"></span>
+        </div>
+        ${dealChangeHtml}
       `;
     } else {
       tickerDiv.innerHTML = `
@@ -243,24 +170,6 @@ function renderDeals() {
   sortedDeals.forEach(deal => {
     grid.appendChild(createDealCard(deal));
   });
-}
-
-// Render news links as hyperlinks
-function renderNewsLinks(newsLinks) {
-  if (!newsLinks || newsLinks.length === 0) {
-    return '<span class="modal-section-content">No links available</span>';
-  }
-
-  const links = newsLinks.map(link => {
-    if (typeof link === 'object' && link.url) {
-      return `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="news-link">${link.title}</a>`;
-    } else if (typeof link === 'string') {
-      return `<span class="modal-section-content">${link}</span>`;
-    }
-    return '';
-  }).join('');
-
-  return `<div class="news-links">${links}</div>`;
 }
 
 // Open modal with deal details
@@ -311,10 +220,10 @@ function openModal(deal) {
     </div>
     ` : ''}
 
-    ${deal.newsLinks && deal.newsLinks.length > 0 ? `
+    ${deal.newsLinks ? `
     <div class="modal-section">
-      <h3 class="modal-section-title">News Sources</h3>
-      ${renderNewsLinks(deal.newsLinks)}
+      <h3 class="modal-section-title">News Source</h3>
+      <p class="modal-section-content">${deal.newsLinks}</p>
     </div>
     ` : ''}
   `;
@@ -500,7 +409,8 @@ function renderStakeholderGraph() {
 }
 
 // Initialize application
-function init() {
+async function init() {
+  await loadDeals();
   renderDeals();
   setupModal();
   renderTimeline();

@@ -29,15 +29,6 @@ body {
   line-height: 1.6;
 }
 
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 /* Header */
 header {
   background-color: var(--card-bg);
@@ -192,6 +183,41 @@ main {
 .ticker-loading {
   color: var(--text-secondary);
   font-style: italic;
+}
+
+.ticker-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Deal Price Change Since Announcement */
+.deal-price-change {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.8rem;
+}
+
+.deal-change-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.deal-change-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.deal-price-change.positive .deal-change-value {
+  color: var(--green);
+}
+
+.deal-price-change.negative .deal-change-value {
+  color: var(--red);
 }
 
 /* Bottom Section */
@@ -447,17 +473,6 @@ main {
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
   font-size: 0.85rem;
-}
-
-.news-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.news-link {
-  color: var(--accent-color);
-  font-size: 0.95rem;
 }
 
 /* Footer */

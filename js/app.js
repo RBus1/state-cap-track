@@ -320,35 +320,44 @@ function renderStakeholderGraph() {
         <span class="legend-dot stakeholder"></span>
         <span>Stakeholder</span>
       </div>
+      <div class="legend-hint">Click a node to filter connections</div>
     </div>
   `;
 
   const width = container.clientWidth;
-  const height = 360;
+  const height = 400;
 
   // Build nodes and links
   const nodes = [];
   const links = [];
-  const stakeholderSet = new Set();
+  const stakeholderCount = {};
+
+  // Count stakeholder appearances
+  deals.forEach(deal => {
+    deal.stakeholders.forEach(s => {
+      stakeholderCount[s] = (stakeholderCount[s] || 0) + 1;
+    });
+  });
 
   // Add deal nodes
   deals.forEach(deal => {
     nodes.push({
       id: `deal-${deal.id}`,
       name: deal.name,
-      type: 'deal'
+      type: 'deal',
+      connections: deal.stakeholders.length
     });
 
     // Add stakeholder nodes and links
     deal.stakeholders.forEach(stakeholder => {
       const stakeholderId = `stakeholder-${stakeholder.replace(/\s+/g, '-')}`;
 
-      if (!stakeholderSet.has(stakeholder)) {
-        stakeholderSet.add(stakeholder);
+      if (!nodes.find(n => n.id === stakeholderId)) {
         nodes.push({
           id: stakeholderId,
           name: stakeholder,
-          type: 'stakeholder'
+          type: 'stakeholder',
+          connections: stakeholderCount[stakeholder]
         });
       }
 
@@ -365,12 +374,18 @@ function renderStakeholderGraph() {
     .attr('width', width)
     .attr('height', height);
 
-  // Create simulation
+  // Create simulation with hierarchical forces
   const simulation = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(links).id(d => d.id).distance(80))
-    .force('charge', d3.forceManyBody().strength(-150))
+    .force('link', d3.forceLink(links).id(d => d.id).distance(100))
+    .force('charge', d3.forceManyBody().strength(-200))
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(30));
+    .force('collision', d3.forceCollide().radius(40))
+    // Pull high-connection stakeholders toward center
+    .force('radial', d3.forceRadial(d => {
+      if (d.type === 'stakeholder' && d.connections >= 3) return 0;
+      if (d.type === 'stakeholder') return 120;
+      return 180;
+    }, width / 2, height / 2).strength(0.8));
 
   // Create links
   const link = svg.append('g')
@@ -392,17 +407,69 @@ function renderStakeholderGraph() {
       .on('drag', dragged)
       .on('end', dragended));
 
+  // Size nodes by connections
   node.append('circle')
-    .attr('r', d => d.type === 'deal' ? 10 : 7);
+    .attr('r', d => {
+      if (d.type === 'deal') return 10;
+      return Math.min(5 + d.connections * 2, 14);
+    });
 
   node.append('text')
     .attr('dx', 12)
     .attr('dy', 4)
-    .text(d => d.name.length > 20 ? d.name.substring(0, 20) + '...' : d.name);
+    .text(d => d.name.length > 18 ? d.name.substring(0, 18) + '...' : d.name);
 
   // Add title for hover
   node.append('title')
     .text(d => d.name);
+
+  // Interactive filtering
+  let selectedNode = null;
+
+  node.on('click', (event, d) => {
+    event.stopPropagation();
+
+    if (selectedNode === d) {
+      // Deselect - show all
+      selectedNode = null;
+      node.classed('dimmed', false);
+      link.classed('dimmed', false).classed('highlighted', false);
+    } else {
+      // Select - filter to connections
+      selectedNode = d;
+
+      // Find connected node IDs
+      const connectedIds = new Set([d.id]);
+      links.forEach(l => {
+        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+        if (sourceId === d.id) connectedIds.add(targetId);
+        if (targetId === d.id) connectedIds.add(sourceId);
+      });
+
+      // Dim unconnected nodes
+      node.classed('dimmed', n => !connectedIds.has(n.id));
+
+      // Highlight connected links
+      link.classed('dimmed', l => {
+        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+        return sourceId !== d.id && targetId !== d.id;
+      });
+      link.classed('highlighted', l => {
+        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+        return sourceId === d.id || targetId === d.id;
+      });
+    }
+  });
+
+  // Click background to reset
+  svg.on('click', () => {
+    selectedNode = null;
+    node.classed('dimmed', false);
+    link.classed('dimmed', false).classed('highlighted', false);
+  });
 
   // Update positions on tick
   simulation.on('tick', () => {
@@ -413,9 +480,8 @@ function renderStakeholderGraph() {
       .attr('y2', d => d.target.y);
 
     node.attr('transform', d => {
-      // Keep nodes within bounds
-      d.x = Math.max(20, Math.min(width - 20, d.x));
-      d.y = Math.max(20, Math.min(height - 20, d.y));
+      d.x = Math.max(30, Math.min(width - 30, d.x));
+      d.y = Math.max(30, Math.min(height - 30, d.y));
       return `translate(${d.x},${d.y})`;
     });
   });

@@ -375,6 +375,44 @@ main {
   background-color: #8b5cf6;
 }
 
+.legend-hint {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-left: auto;
+}
+
+/* Graph interactive states */
+.node {
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.node.dimmed {
+  opacity: 0.15;
+}
+
+.node circle {
+  transition: stroke-width 0.2s;
+}
+
+.node:hover circle {
+  stroke-width: 3px;
+}
+
+.link {
+  transition: opacity 0.3s, stroke-width 0.3s;
+}
+
+.link.dimmed {
+  opacity: 0.05;
+}
+
+.link.highlighted {
+  stroke: var(--accent-color);
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+
 /* Modal */
 .modal-overlay {
   position: fixed;

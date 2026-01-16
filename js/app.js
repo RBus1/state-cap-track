@@ -86,26 +86,24 @@ function calculateDealChange(currentPrice, announcementPrice) {
   return { change, changePercent };
 }
 
-// Render stock ticker section
-function renderStockTicker(deal, container) {
-  if (!deal.ticker) return;
-
+// Render a single ticker
+function renderSingleTicker(tickerSymbol, announcementPrice, container) {
   const tickerDiv = document.createElement('div');
   tickerDiv.className = 'stock-ticker';
   tickerDiv.innerHTML = `
-    <span class="ticker-symbol">${deal.ticker}</span>
+    <span class="ticker-symbol">${tickerSymbol}</span>
     <span class="ticker-loading">Loading...</span>
   `;
   container.appendChild(tickerDiv);
 
   // Fetch and update stock price
-  fetchStockPrice(deal.ticker).then(priceData => {
+  fetchStockPrice(tickerSymbol).then(priceData => {
     if (priceData) {
-      stockPrices[deal.ticker] = priceData;
+      stockPrices[tickerSymbol] = priceData;
       const isPositive = priceData.change >= 0;
 
       // Calculate change since deal announcement
-      const dealChange = calculateDealChange(priceData.price, deal.announcementPrice);
+      const dealChange = calculateDealChange(priceData.price, announcementPrice);
       const dealChangeHtml = dealChange ? `
         <div class="deal-price-change ${dealChange.change >= 0 ? 'positive' : 'negative'}">
           <span class="deal-change-label">Since Deal:</span>
@@ -117,7 +115,7 @@ function renderStockTicker(deal, container) {
 
       tickerDiv.innerHTML = `
         <div class="ticker-row">
-          <span class="ticker-symbol">${deal.ticker}</span>
+          <span class="ticker-symbol">${tickerSymbol}</span>
           <span class="ticker-price">$${priceData.price.toFixed(2)}</span>
           <span class="ticker-change ${isPositive ? 'positive' : 'negative'}">
             ${isPositive ? '+' : ''}${priceData.change.toFixed(2)} (${isPositive ? '+' : ''}${priceData.changePercent.toFixed(2)}%)
@@ -128,11 +126,26 @@ function renderStockTicker(deal, container) {
       `;
     } else {
       tickerDiv.innerHTML = `
-        <span class="ticker-symbol">${deal.ticker}</span>
+        <span class="ticker-symbol">${tickerSymbol}</span>
         <span class="ticker-loading">Price unavailable</span>
       `;
     }
   });
+}
+
+// Render stock ticker section (supports single ticker or multiple tickers)
+function renderStockTicker(deal, container) {
+  // Handle multiple tickers (new format)
+  if (deal.tickers && Array.isArray(deal.tickers)) {
+    deal.tickers.forEach(t => {
+      renderSingleTicker(t.symbol, t.announcementPrice, container);
+    });
+    return;
+  }
+
+  // Handle single ticker (legacy format)
+  if (!deal.ticker) return;
+  renderSingleTicker(deal.ticker, deal.announcementPrice, container);
 }
 
 // Create a deal card

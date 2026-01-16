@@ -152,9 +152,11 @@
   {
     "id": 9,
     "name": "Westinghouse",
-    "ticker": "CCJ",
+    "tickers": [
+      { "symbol": "CCJ", "announcementPrice": 86.62 },
+      { "symbol": "BAM", "announcementPrice": 54.12 }
+    ],
     "dateAnnounced": "2025-10-28",
-    "announcementPrice": 86.62,
     "description": "The U.S. government gets 20% of Westinghouse profits above $17.5 billion, plus the option to require an IPO and purchase a 20% equity stake if the company is valued at $30 billion or more by January 2029.",
     "amountA": "N/A",
     "structure": "",

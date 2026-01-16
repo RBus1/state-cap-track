@@ -325,7 +325,7 @@ function renderStakeholderGraph() {
   `;
 
   const width = container.clientWidth;
-  const height = 500;
+  const height = 400;
 
   // Build nodes and links
   const nodes = [];

@@ -3,3 +3,6 @@
 
 # IDE
 .claude/
+
+# Project context for Claude
+CLAUDE.md

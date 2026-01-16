@@ -159,6 +159,21 @@ function createDealCard(deal) {
   return card;
 }
 
+// Render news links as hyperlinks
+function renderNewsLinks(newsLinks) {
+  if (!newsLinks) return '';
+
+  // Handle array of link objects
+  if (Array.isArray(newsLinks)) {
+    return newsLinks.map(link =>
+      `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="news-link">${link.title}</a>`
+    ).join(' ');
+  }
+
+  // Handle plain string (legacy format)
+  return `<span>${newsLinks}</span>`;
+}
+
 // Render all deal cards
 function renderDeals() {
   const grid = document.getElementById('deals-grid');
@@ -224,8 +239,8 @@ function openModal(deal) {
 
     ${deal.newsLinks ? `
     <div class="modal-section">
-      <h3 class="modal-section-title">News Source</h3>
-      <p class="modal-section-content">${deal.newsLinks}</p>
+      <h3 class="modal-section-title">News Sources</h3>
+      <div class="news-links">${renderNewsLinks(deal.newsLinks)}</div>
     </div>
     ` : ''}
   `;

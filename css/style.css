@@ -220,6 +220,23 @@ main {
   color: var(--red);
 }
 
+/* News Links */
+.news-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.news-link {
+  color: var(--accent-color);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+}
+
 /* Bottom Section */
 .bottom-section {
   display: grid;

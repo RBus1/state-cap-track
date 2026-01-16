@@ -91,7 +91,9 @@
     "structure": "",
     "stakeholders": ["Department of Defense", "Office of Strategic Capital", "Interior Department", "South32", "Ambler Metals", "Trilogy Metals Inc."],
     "area": "Critical Minerals",
-    "newsLinks": "",
+    "newsLinks": [
+      { "title": "PR Newswire", "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-strategic-investment-by-us-federal-government-302576247.html" }
+    ],
     "officialStatement": "",
     "outcome": "",
     "notes": ""
@@ -158,7 +160,9 @@
     "structure": "",
     "stakeholders": ["Department of Energy", "Westinghouse", "Brookfield Asset Management", "CAMECO"],
     "area": "Nuclear Energy",
-    "newsLinks": "",
+    "newsLinks": [
+      { "title": "Politico", "url": "https://www.eenews.net/articles/did-trump-just-pick-a-nuclear-national-champion/" }
+    ],
     "officialStatement": "",
     "outcome": "",
     "notes": ""

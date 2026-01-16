@@ -5,36 +5,62 @@
     "ticker": "MP",
     "dateAnnounced": "2025-07-10",
     "announcementPrice": 30.03,
-    "description": "15% stake for $400 million from the Department of Defense, making it the company's largest shareholder. Guaranteed offtake agreements and price floor agreement included.",
+    "description": "Deal announced in order to expand the only operating rare earth element mine in the U.S. and to enhance their mineral processing and permanent magent manufacturing capacity. ",
     "amountA": "$400 Million",
-    "structure": "Guaranteed price of $110/kg for 10 years (current market: ~$60/kg), with 30% profit sharing above $110. DoD commits to purchasing all NdFEB magnets for 10 years at cost plus $140M annually. 15% equity stake through convertible stock and warrants. $150M loan to expand the Mountain Pass processing facility.",
-    "stakeholders": ["Department of Defense", "Office of Strategic Capital", "MP Materials", "Department of Energy"],
-    "area": "Critical Minerals, Rare Earths, Neodymium, Praseodymium",
-    "newsLinks": [
-      { "title": "Bloomberg", "url": "https://www.bloomberg.com/news/newsletters/2025-09-10/what-the-pentagon-s-rare-earths-deal-gets-right-and-wrong" }],
-    "officialStatement": [
-      { "title": "DoD Press Release", "url": "https://www.defense.gov/News/Releases/Release/Article/3450132/department-of-defense-announces-strategic-investment-in-mp-materials-to-secure-u-s/" }
+    "amountB": "",
+    "structure": "Guaranteed price of $110/kg for 10 years (current market: ~$60/kg), with 30% profit sharing above $110. DoD commits to purchasing all NdFEB magnets for 10 years at cost plus $140M annually. $400M 15% equity stake through convertible stock and warrants. $150M loan to expand the Mountain Pass processing facility.",
+    "stakeholders": [
+      "Department of Defense",
+      "Office of Strategic Capital",
+      "MP Materials",
+      "Department of Energy"
     ],
-    "outcome": "",
-    "notes": ""
+    "newsLinks": [
+      {
+        "title": "Bloomberg",
+        "url": "https://www.bloomberg.com/news/newsletters/2025-09-10/what-the-pentagon-s-rare-earths-deal-gets-right-and-wrong"
+      }
+    ],
+    "officialStatement": [
+      {
+        "title": "DoD Press Release",
+        "url": "https://www.defense.gov/News/Releases/Release/Article/3450132/department-of-defense-announces-strategic-investment-in-mp-materials-to-secure-u-s/"
+      }
+    ],
+    "notes": "White House Advisor Stephen Miller sold shares in MP materials days after the government announced their investment. Source: [{\"Source\" :\"NYT\", \"url\": https://www.nytimes.com/2025/12/09/us/politics/stephen-miller-minerals-stake-ethics.html\"}]",
+    "area": "Critical Minerals, Rare Earths, Neodymium, Praseodymium",
+    "outcome": ""
   },
   {
     "id": 2,
     "name": "Intel",
     "ticker": "INTC",
     "dateAnnounced": "2025-08-22",
-    "announcementPrice": 23.50,
-    "description": "10% stake for $8.9 billion",
+    "announcementPrice": 23.5,
+    "description": "Deal intended to bolster secure American semiconductor manufacturing by taking a 9.9% stake in Intel.",
     "amountA": "$8.9 Billion",
-    "structure": "$5.7 billion from remaining CHIPS Act grants plus $3.2 billion from Secure Enclave program",
-    "stakeholders": ["Intel", "Department of Commerce", "Department of Defense"],
-    "area": "Semiconductors",
+    "amountB": "",
+    "structure": "$5.7 billion from remaining CHIPS Act grants plus $3.2 billion from Secure Enclave program for a 9.9% stake in Intel.",
+    "stakeholders": [
+      "Intel",
+      "Department of Commerce",
+      "Department of Defense"
+    ],
     "newsLinks": [
-     {"title": "Reuters", "url": "https://www.reuters.com/business/us-take-10-equity-stake-intel-trumps-latest-corporate-move-2025-08-22/"}],
+      {
+        "title": "Reuters",
+        "url": "https://www.reuters.com/business/us-take-10-equity-stake-intel-trumps-latest-corporate-move-2025-08-22/"
+      }
+    ],
     "officialStatement": [
-      { "title": "Intel", "url": "https://www.intc.com/news-events/press-releases/detail/1748/intel-and-trump-administration-reach-historic-agreement-to?gsid=af93bbc6-c18a-44cb-8193-1c7f643d63fa"}],
-    "outcome": "",
-    "notes": ""
+      {
+        "title": "Intel",
+        "url": "https://www.intc.com/news-events/press-releases/detail/1748/intel-and-trump-administration-reach-historic-agreement-to?gsid=af93bbc6-c18a-44cb-8193-1c7f643d63fa"
+      }
+    ],
+    "notes": "",
+    "area": "Semiconductors",
+    "outcome": ""
   },
   {
     "id": 3,
@@ -42,42 +68,69 @@
     "ticker": null,
     "dateAnnounced": "2025-06-18",
     "announcementPrice": null,
-    "description": "'Golden share' giving the federal government veto power over key corporate decisions as part of the Nippon Steel acquisition approval",
+    "description": "Golden share' giving the federal government veto power over key corporate decisions as part of the Nippon Steel acquisition approval",
     "amountA": "N/A",
     "amountB": "",
     "structure": "",
-    "stakeholders": ["US Steel", "Nippon Steel", "White House"],
-    "area": "Steel",
+    "stakeholders": [
+      "US Steel",
+      "Nippon Steel",
+      "White House"
+    ],
     "newsLinks": [
-     {"title": "WSJ", "url": "https://www.wsj.com/business/trump-invokes-golden-share-to-block-u-s-steel-plans-for-illinois-plant-f6b661ed?gaa_at=eafs&gaa_n=AWEtsqcOY38J5IfdjgaqMW8kZrqLo3lpLregj4sV3HsSv7eFvZtPlcbiAvHc7e2ESpE%3D&gaa_ts=6969b1c1&gaa_sig=93NM5c2b2_-WmQLq2ykWNPrPCZpSaU_YFmbOhJLXSDSpkvsQBKH5bp1EFWQNREzJ384Z8OLAHzHHS-yFXfxM2w%3D%3D"}], 
+      {
+        "title": "WSJ",
+        "url": "https://www.wsj.com/business/trump-invokes-golden-share-to-block-u-s-steel-plans-for-illinois-plant-f6b661ed?gaa_at=eafs&gaa_n=AWEtsqcOY38J5IfdjgaqMW8kZrqLo3lpLregj4sV3HsSv7eFvZtPlcbiAvHc7e2ESpE%3D&gaa_ts=6969b1c1&gaa_sig=93NM5c2b2_-WmQLq2ykWNPrPCZpSaU_YFmbOhJLXSDSpkvsQBKH5bp1EFWQNREzJ384Z8OLAHzHHS-yFXfxM2w%3D%3D"
+      }
+    ],
     "officialStatement": [
-      { "title": "White House", "url" : "https://www.whitehouse.gov/presidential-actions/2025/06/regarding-the-proposed-acquisition-of-the-united-states-steel-corporation-by-nippon-steel-corporation/"}],
-    "outcome": "",
-    "notes": ""
+      {
+        "title": "White House",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/06/regarding-the-proposed-acquisition-of-the-united-states-steel-corporation-by-nippon-steel-corporation/"
+      }
+    ],
+    "notes": "",
+    "area": "Steel",
+    "outcome": ""
   },
   {
     "id": 4,
     "name": "Lithium Americas Corporation",
     "ticker": "LAC",
-    "dateAnnounced": "2025-10-01",
-    "announcementPrice": 5.71	,
-    "description": "5% stake in the company plus a separate 5% stake in the Thacker Pass joint venture with General Motors, as part of restructuring a $2.26 billion loan",
-    "amountA": "$182 million",
+    "dateAnnounced": "2025-09-30",
+    "announcementPrice": 5.71,
+    "description": "Restructuring of an existing loan into an equity stake in LAC and in their Thacker Pass project in order to ensure a secure domestic supply of lithium for EV battery production.",
+    "amountA": "$182 Million",
     "amountB": "",
     "structure": "$182 million in deferred debt payments over 5 years in exchange for 5% equity stake in Lithium Americas and additional 5% stake in Thacker Pass JV with GM",
-    "stakeholders": ["General Motors", "Department of Energy", "Lithium Americas Corporation"],
-    "area": "Critical Minerals, Lithium",
+    "stakeholders": [
+      "General Motors",
+      "Department of Energy",
+      "Lithium Americas Corporation"
+    ],
     "newsLinks": [
-      { "title": "Reuters", "url": "https://www.reuters.com/markets/deals/lithium-americas-reaches-deal-with-us-government-restructure-226-bln-loan-2025-10-01/" }
+      {
+        "title": "Reuters",
+        "url": "https://www.cnbc.com/2025/09/30/lithium-americas-stock-pops-as-government-takes-a-stake-to-boost-nevada-project.html"
+      }
     ],
     "officialStatement": [
-      { "title": "DOE", "url": "https://www.energy.gov/articles/department-energy-restructures-lithium-americas-deal-protect-taxpayers-and-onshore"}
+      {
+        "title": "DOE",
+        "url": "https://www.energy.gov/articles/department-energy-restructures-lithium-americas-deal-protect-taxpayers-and-onshore"
+      }
     ],
-    "outcome": "", 
     "notes": [
-      { "text": "Third highest official at the Department of Interior has direct conflict of interest from family investments in water rights near Thacker Pass." },
-      { "source": "NYT", "url": "https://www.nytimes.com/2026/01/03/climate/lithium-mine-interior-karen-budd-falen-water-contract.html" }
-    ]
+      {
+        "text": "Third highest official at the Department of Interior has direct conflict of interest from family investments in water rights near Thacker Pass."
+      },
+      {
+        "source": "NYT",
+        "url": "https://www.nytimes.com/2026/01/03/climate/lithium-mine-interior-karen-budd-falen-water-contract.html"
+      }
+    ],
+    "area": "Critical Minerals, Lithium",
+    "outcome": ""
   },
   {
     "id": 5,
@@ -85,18 +138,28 @@
     "ticker": "TMQ",
     "dateAnnounced": "2025-10-07",
     "announcementPrice": 2.09,
-    "description": "10% stake for $35.6 million investment, plus warrants for an additional 7.5%",
+    "description": "Equity investment for exploration in Alaska's Ambler District and financing the Ambler Access Road to unlock potentiao copper and cobalt deposits.",
     "amountA": "$35.6 Million",
     "amountB": "",
-    "structure": "",
-    "stakeholders": ["Department of Defense", "Office of Strategic Capital", "Interior Department", "South32", "Ambler Metals", "Trilogy Metals Inc."],
-    "area": "Critical Minerals",
+    "structure": "10% stake for $35.6 million investment, plus warrants for an additional 7.5%",
+    "stakeholders": [
+      "Department of Defense",
+      "Office of Strategic Capital",
+      "Interior Department",
+      "South32",
+      "Ambler Metals",
+      "Trilogy Metals Inc."
+    ],
     "newsLinks": [
-      { "title": "PR Newswire", "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-strategic-investment-by-us-federal-government-302576247.html" }
+      {
+        "title": "CNN",
+        "url": "https://www.cnn.com/2025/10/07/business/trilogy-metals-us-acquires-stake"
+      }
     ],
     "officialStatement": "",
-    "outcome": "",
-    "notes": ""
+    "notes": "Major Trump political donor John Paulson owned an 8.7% stake in Trilogy Metals as of the end of June. ",
+    "area": "Critical Minerals",
+    "outcome": ""
   },
   {
     "id": 6,
@@ -104,33 +167,53 @@
     "ticker": null,
     "dateAnnounced": "2025-11-03",
     "announcementPrice": null,
-    "description": "$700 million in loans and $50 million in CHIPS Act funding in exchange for warrants in both companies and $50 million of equity in Vulcan Elements to finance a vertically integrated rare earth magnet supply chain.",
+    "description": "Financing a vertically integrated rare earth magnet supply chain. $700 million in loans and $50 million in CHIPS Act funding in exchange for warrants in both companies and $50 million of equity in Vulcan Elements.",
     "amountA": "$750 Million",
     "amountB": "",
     "structure": "$620 million direct loan from the Department of War's Office of Strategic Capital to Vulcan Elements. $50 million in federal incentives from the Department of Commerce under the CHIPS and Science Act to Vulcan Elements. $80 million direct loan from the Office of Strategic Capital to ReElement Technologies, matched by private capital. $550 million in private capital for Vulcan Elements. Department of Defense receives warrants in both Vulcan Elements and ReElement Technologies. Department of Commerce receives $50 million of equity in Vulcan Elements.",
-    "stakeholders": ["Department of Defense", "Office of Strategic Capital", "Department of Commerce", "Vulcan Elements", "ReElement Technologies"],
-    "area": "Critical Minerals, Rare Earths",
-    "newsLinks": "",
+    "stakeholders": [
+      "Department of Defense",
+      "Office of Strategic Capital",
+      "Department of Commerce",
+      "Vulcan Elements",
+      "ReElement Technologies"
+    ],
+    "newsLinks": [
+      {
+        "title": "PR Newswire",
+        "url": "https://www.prnewswire.com/news-releases/vulcan-elements-forges-1-4-billion-partnership-with-the-united-states-government-and-reelement-technologies-to-expand-100-vertically-integrated-domestic-magnet-supply-chain-302602878.html"
+      }
+    ],
     "officialStatement": "",
-    "outcome": "",
-    "notes": ""
+    "notes": "",
+    "area": "Critical Minerals, Rare Earths",
+    "outcome": ""
   },
   {
     "id": 7,
     "name": "Korea Zinc",
-    "ticker": "KRX: 010130",
+    "ticker": null,
     "dateAnnounced": "2025-12-15",
     "announcementPrice": null,
-    "description": "$1.9B of shares sold to a joint venture with 40% Department of Defense ownership and 60% unnamed investors yielding a 10% total stake in Korea Zinc",
-    "amountA": "$1.94 Billion",
+    "description": "Establishment of a joint venture between the DoD and unnamed investors to establish a zinc smelter inTennesse. 10% total stake in Korea Zinc.",
+    "amountA": "$210 Million",
     "amountB": "",
-    "structure": "",
-    "stakeholders": ["Department of Defense", "Korea Zinc", "Unnamed Investors"],
-    "area": "Critical Minerals, Zinc",
-    "newsLinks": "CNBC",
+    "structure": "$1.9B of shares sold to a joint venture with 40% Department of Defense ownership and 60% unnamed investors yielding a 10% total stake in Korea Zinc",
+    "stakeholders": [
+      "Department of Defense",
+      "Korea Zinc",
+      "Unnamed Investors"
+    ],
+    "newsLinks": [
+      {
+        "title": "CNBC",
+        "url": "https://www.prnewswire.com/news-releases/vulcan-elements-forges-1-4-billion-partnership-with-the-united-states-government-and-reelement-technologies-to-expand-100-vertically-integrated-domestic-magnet-supply-chain-302602878.html"
+      }
+    ],
     "officialStatement": "",
-    "outcome": "",
-    "notes": ""
+    "notes": "",
+    "area": "Critical Minerals, Zinc",
+    "outcome": ""
   },
   {
     "id": 8,
@@ -138,35 +221,86 @@
     "ticker": null,
     "dateAnnounced": "2026-01-12",
     "announcementPrice": null,
-    "description": "$150M of preferred equity in ATALCO by the Department of Defense's Industrial Base Analysis and Sustainment program. Pinnacle Asset Management and Concord Resources to provide $300M in private capital.",
+    "description": "$150M of preferred equity in ATALCO inteded to sustain and expand domestic alumina production and establish the first primary gallium production capability in Gramercy, Louisiana.",
     "amountA": "$150 Million",
     "amountB": "",
-    "structure": "$150M of preferred equity, with additional government funding expected.",
-    "stakeholders": ["Department of Defense", "ATALCO", "Pinnacle Asset Management", "Concord Resources"],
-    "area": "Critical Minerals, Aluminum",
-    "newsLinks": "Business Wire",
+    "structure": "$150M of preferred equity in ATALCO by the Department of Defense's Industrial Base Analysis and Sustainment program. Pinnacle Asset Management and Concord Resources to provide $300M in private capital. Additional government capital expected",
+    "stakeholders": [
+      "Department of Defense",
+      "ATALCO",
+      "Pinnacle Asset Management",
+      "Concord Resources"
+    ],
+    "newsLinks": [
+      {
+        "title": "Business Wire",
+        "url": "https://www.businesswire.com/news/home/20260111484503/en/Atlantic-Alumina-Announces-%24450-Million-Strategic-Partnership-with-United-States-Government-to-Secure-U.S.-Alumina-Production-and-Build-Americas-First-Large-Scale-Primary-Gallium-Production-Circuit"
+      }
+    ],
     "officialStatement": "",
-    "outcome": "",
-    "notes": ""
+    "notes": "",
+    "area": "Critical Minerals, Aluminum",
+    "outcome": ""
   },
   {
     "id": 9,
     "name": "Westinghouse",
     "tickers": [
-      { "symbol": "CCJ", "announcementPrice": 86.62 },
-      { "symbol": "BAM", "announcementPrice": 54.12 }
+      {
+        "symbol": "CCJ",
+        "announcementPrice": 86.62
+      },
+      {
+        "symbol": "BAM",
+        "announcementPrice": 54.12
+      }
     ],
     "dateAnnounced": "2025-10-28",
-    "description": "The U.S. government gets 20% of Westinghouse profits above $17.5 billion, plus the option to require an IPO and purchase a 20% equity stake if the company is valued at $30 billion or more by January 2029.",
+    "announcementPrice": null,
+    "description": "$80B partnership announced to help construct new nuclear plants. The U.S. government gets a percentage of Westinghouse profits and the option to purchase equity at a later date.",
     "amountA": "N/A",
-    "structure": "",
-    "stakeholders": ["Department of Energy", "Westinghouse", "Brookfield Asset Management", "CAMECO"],
-    "area": "Nuclear Energy",
+    "amountB": "",
+    "structure": "The U.S. government gets 20% of Westinghouse profits above $17.5 billion, plus the option to require an IPO and purchase a 20% equity stake if the company is valued at $30 billion or more by January 2029.",
+    "stakeholders": [
+      "Department of Energy",
+      "Westinghouse",
+      "Brookfield Asset Management",
+      "CAMECO"
+    ],
     "newsLinks": [
-      { "title": "Politico", "url": "https://www.eenews.net/articles/did-trump-just-pick-a-nuclear-national-champion/" }
+      {
+        "title": "Politico",
+        "url": "https://www.eenews.net/articles/did-trump-just-pick-a-nuclear-national-champion/"
+      }
     ],
     "officialStatement": "",
-    "outcome": "",
-    "notes": ""
+    "notes": "",
+    "area": "Nuclear Energy",
+    "outcome": ""
+  },
+  {
+    "id": 10,
+    "name": "xLight",
+    "ticker": null,
+    "dateAnnounced": "2025-12-01",
+    "announcementPrice": null,
+    "description": "$150M in CHIPS Act funding to research and develop free-electron laser tools for advanced lithography and semiconductor manufacturing.",
+    "amountA": "$150 Million",
+    "amountB": "",
+    "structure": "Letter of intent signed that gives xLight $150M of CHIPS Act funding in exchange for an undisclosed equity stake",
+    "stakeholders": [
+      "xLight",
+      "Department of Commerce"
+    ],
+    "newsLinks": [
+      {
+        "title": "Manufacturing Dive",
+        "url": "https://www.manufacturingdive.com/news/xlight-chips-science-act-commerce-fel-albany-nanoplex-former-intel-pat-gelsinger/806767/"
+      }
+    ],
+    "officialStatement": "",
+    "notes": "",
+    "area": "Semiconductors",
+    "outcome": ""
   }
 ]

@@ -5,14 +5,16 @@
     "ticker": "MP",
     "dateAnnounced": "2025-07-10",
     "announcementPrice": 30.03,
-    "description": "15% stake for $400 million from the Department of Defense, making it the company's largest shareholder. Guaranteed offtake agreements and price floor agreement also included.",
+    "description": "15% stake for $400 million from the Department of Defense, making it the company's largest shareholder. Guaranteed offtake agreements and price floor agreement included.",
     "amountA": "$400 Million",
-    "amountB": "",
-    "structure": "Price floor: $110 / kilo for 10 years (current market price = ~$60). Profit sharing of 30% if > $110. Offtake: DoD guaranteed purchase of all NdFEB magnets for 10 years at cost of production + $140M / year. Equity: convertible stock and warrants of 15%. Loans: $150M loan to expand mountain pass processing facility",
+    "structure": "Guaranteed price of $110/kg for 10 years (current market: ~$60/kg), with 30% profit sharing above $110. DoD commits to purchasing all NdFEB magnets for 10 years at cost plus $140M annually. 15% equity stake through convertible stock and warrants. $150M loan to expand the Mountain Pass processing facility.",
     "stakeholders": ["Department of Defense", "Office of Strategic Capital", "MP Materials", "Department of Energy"],
     "area": "Critical Minerals, Rare Earths, Neodymium, Praseodymium",
-    "newsLinks": "Bloomberg",
-    "officialStatement": "",
+    "newsLinks": [
+      { "title": "Bloomberg", "url": "https://www.bloomberg.com/news/newsletters/2025-09-10/what-the-pentagon-s-rare-earths-deal-gets-right-and-wrong" }],
+    "officialStatement": [
+      { "title": "DoD Press Release", "url": "https://www.defense.gov/News/Releases/Release/Article/3450132/department-of-defense-announces-strategic-investment-in-mp-materials-to-secure-u-s/" }
+    ],
     "outcome": "",
     "notes": ""
   },
@@ -24,29 +26,32 @@
     "announcementPrice": 23.50,
     "description": "10% stake for $8.9 billion",
     "amountA": "$8.9 Billion",
-    "amountB": "",
-    "structure": "",
+    "structure": "$5.7 billion from remaining CHIPS Act grants plus $3.2 billion from Secure Enclave program",
     "stakeholders": ["Intel", "Department of Commerce", "Department of Defense"],
     "area": "Semiconductors",
-    "newsLinks": "CNBC",
-    "officialStatement": "",
+    "newsLinks": [
+     {"title": "Reuters", "url": "https://www.reuters.com/business/us-take-10-equity-stake-intel-trumps-latest-corporate-move-2025-08-22/"}],
+    "officialStatement": [
+      { "title": "Intel", "url": "https://www.intc.com/news-events/press-releases/detail/1748/intel-and-trump-administration-reach-historic-agreement-to?gsid=af93bbc6-c18a-44cb-8193-1c7f643d63fa"}],
     "outcome": "",
-    "notes": "$5.7 billion from remaining CHIPS Act grants plus $3.2 billion from Secure Enclave program"
+    "notes": ""
   },
   {
     "id": 3,
     "name": "US Steel / Nippon Steel",
-    "ticker": "X",
+    "ticker": null,
     "dateAnnounced": "2025-06-18",
     "announcementPrice": null,
-    "description": "Golden share (non-equity stake) giving the federal government veto power over key corporate decisions as part of the Nippon Steel acquisition approval",
+    "description": "'Golden share' giving the federal government veto power over key corporate decisions as part of the Nippon Steel acquisition approval",
     "amountA": "N/A",
     "amountB": "",
     "structure": "",
-    "stakeholders": ["US Steel", "Nippon Steel", "Federal Government"],
+    "stakeholders": ["US Steel", "Nippon Steel", "White House"],
     "area": "Steel",
-    "newsLinks": "",
-    "officialStatement": "",
+    "newsLinks": [
+     {"title": "WSJ", "url": "https://www.wsj.com/business/trump-invokes-golden-share-to-block-u-s-steel-plans-for-illinois-plant-f6b661ed?gaa_at=eafs&gaa_n=AWEtsqcOY38J5IfdjgaqMW8kZrqLo3lpLregj4sV3HsSv7eFvZtPlcbiAvHc7e2ESpE%3D&gaa_ts=6969b1c1&gaa_sig=93NM5c2b2_-WmQLq2ykWNPrPCZpSaU_YFmbOhJLXSDSpkvsQBKH5bp1EFWQNREzJ384Z8OLAHzHHS-yFXfxM2w%3D%3D"}], 
+    "officialStatement": [
+      { "title": "White House", "url" : "https://www.whitehouse.gov/presidential-actions/2025/06/regarding-the-proposed-acquisition-of-the-united-states-steel-corporation-by-nippon-steel-corporation/"}],
     "outcome": "",
     "notes": ""
   },
@@ -57,15 +62,22 @@
     "dateAnnounced": "2025-10-01",
     "announcementPrice": 5.71	,
     "description": "5% stake in the company plus a separate 5% stake in the Thacker Pass joint venture with General Motors, as part of restructuring a $2.26 billion loan",
-    "amountA": "$2.26 Billion",
+    "amountA": "$182 million",
     "amountB": "",
-    "structure": "",
+    "structure": "$182 million in deferred debt payments over 5 years in exchange for 5% equity stake in Lithium Americas and additional 5% stake in Thacker Pass JV with GM",
     "stakeholders": ["General Motors", "Department of Energy", "Lithium Americas Corporation"],
     "area": "Critical Minerals, Lithium",
-    "newsLinks": "",
-    "officialStatement": "",
-    "outcome": "",
-    "notes": ""
+    "newsLinks": [
+      { "title": "Reuters", "url": "https://www.reuters.com/markets/deals/lithium-americas-reaches-deal-with-us-government-restructure-226-bln-loan-2025-10-01/" }
+    ],
+    "officialStatement": [
+      { "title": "DOE", "url": "https://www.energy.gov/articles/department-energy-restructures-lithium-americas-deal-protect-taxpayers-and-onshore"}
+    ],
+    "outcome": "", 
+    "notes": [
+      { "text": "Third highest official at the Department of Interior has direct conflict of interest from family investments in water rights near Thacker Pass." },
+      { "source": "NYT", "url": "https://www.nytimes.com/2026/01/03/climate/lithium-mine-interior-karen-budd-falen-water-contract.html" }
+    ]
   },
   {
     "id": 5,
@@ -120,7 +132,7 @@
   },
   {
     "id": 8,
-    "name": "Atlantic Aluminum",
+    "name": "Atlantic Alumina",
     "ticker": null,
     "dateAnnounced": "2026-01-12",
     "announcementPrice": null,
@@ -131,6 +143,22 @@
     "stakeholders": ["Department of Defense", "ATALCO", "Pinnacle Asset Management", "Concord Resources"],
     "area": "Critical Minerals, Aluminum",
     "newsLinks": "Business Wire",
+    "officialStatement": "",
+    "outcome": "",
+    "notes": ""
+  },
+  {
+    "id": 9,
+    "name": "Westinghouse",
+    "ticker": "CCJ",
+    "dateAnnounced": "2026-10-28",
+    "announcementPrice": 86.62,
+    "description": "The U.S. government gets 20% of Westinghouse profits above $17.5 billion, plus the option to require an IPO and purchase a 20% equity stake if the company is valued at $30 billion or more by January 2029.",
+    "amountA": "N/A",
+    "structure": "",
+    "stakeholders": ["Department of Energy", "Westinghouse", "Brookfield Asset Management", "CAMECO"],
+    "area": "Nuclear Energy",
+    "newsLinks": "",
     "officialStatement": "",
     "outcome": "",
     "notes": ""

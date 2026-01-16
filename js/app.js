@@ -187,6 +187,25 @@ function renderNewsLinks(newsLinks) {
   return `<span>${newsLinks}</span>`;
 }
 
+// Render notes with optional source links
+function renderNotes(notes) {
+  if (!notes) return '';
+
+  // Handle array of note objects
+  if (Array.isArray(notes)) {
+    return notes.map(note => {
+      const text = note.text || '';
+      if (note.url && note.source) {
+        return `${text} <a href="${note.url}" target="_blank" rel="noopener noreferrer" class="news-link">(${note.source})</a>`;
+      }
+      return text;
+    }).join('<br>');
+  }
+
+  // Handle plain string (legacy format)
+  return notes;
+}
+
 // Render all deal cards
 function renderDeals() {
   const grid = document.getElementById('deals-grid');
@@ -246,7 +265,7 @@ function openModal(deal) {
     ${deal.notes ? `
     <div class="modal-section">
       <h3 class="modal-section-title">Notes</h3>
-      <p class="modal-section-content">${deal.notes}</p>
+      <p class="modal-section-content">${renderNotes(deal.notes)}</p>
     </div>
     ` : ''}
 

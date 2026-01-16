@@ -240,7 +240,7 @@ main {
 /* Bottom Section */
 .bottom-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -315,7 +315,7 @@ main {
 }
 
 .graph-container {
-  height: 400px;
+  height: 500px;
   position: relative;
 }
 
